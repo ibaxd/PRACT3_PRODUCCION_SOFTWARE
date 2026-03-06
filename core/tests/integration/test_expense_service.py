@@ -152,7 +152,6 @@ def test_total_amount_after_removal():
     service = create_service()
     service.create_expense("Cursos", 30)
     service.create_expense("Internet", 25)
-    expenses = service.list_expenses()
-    assert expenses[0].amount + expenses[1].amount == 55
+    assert service.total_amount() == 55
     service.remove_expense(1)
-    assert expenses[0].amount == 25
+    assert service.total_amount() == 25
